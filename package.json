@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "npm run build",
-    "start": "node function/index.js",
-    "dev": "nodemon function/index"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "vishal",
   "license": "ISC",

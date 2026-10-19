@@ -18,12 +18,12 @@ const app = express();
 const port = 8080;
 
 // Middleware
-app.use(express.static("function/public"));
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set view engine and views path
 app.set("view engine", "ejs");
-app.set("views", path.resolve("function/views"));
+app.set("views", path.resolve("views"));
 
 // Configure session
 app.use(
