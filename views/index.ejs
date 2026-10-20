@@ -1,7 +1,7 @@
 <%- include('./partials/header') %> <%- include('./partials/navbar') %>
 <div class="container mt-5">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-    <% if (locals.user) { %> <% blogs.forEach(blog => { %>
+    <% if (locals.user && locals.blogs.length > 0) { %> <% blogs.forEach(blog => { %>
     <div class="col">
       <div class="card shadow-sm">
         <img src="<%= blog.coverImage %>" alt="blog images" class="img-fluid" />
@@ -15,7 +15,7 @@
               <a href="/<%=blog._id%>" class="nav-link">Continue reading...</a>
             </button>
           </div>
-        </div>
+        </div>    
       </div>
     </div>
     <% }) %> <% } else{%>
@@ -28,22 +28,35 @@
           width="50"
         />
         <h1 class="text-body-emphasis">
-          No Blogs Posted Yet, <br />
-          Please Login or Create Your Blogs
+          <% if (locals.user) { %>
+            No Blogs Posted Yet, <br />
+            Create Your Blogs
+          <% } else { %>
+            Create a new account or Signin existing
+          <% } %>
         </h1>
         <div class="d-inline-flex gap-2 my-4 flex_column">
+          <% if (locals.user) { %>
           <button
             class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill"
             type="button"
           >
-            <a href="/signup" class="nav-link">Create Account</a>
+            <a href="/new" class="nav-link">Create Blogs</a>
           </button>
-          <button
-            class="btn btn-outline-secondary btn-lg px-4 rounded-pill"
-            type="button"
-          >
-            <a href="/login" class="nav-link">Login Instead</a>
-          </button>
+          <% } else { %>
+            <button
+              class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill"
+              type="button"
+            >
+              <a href="/signup" class="nav-link">Create Account</a>
+            </button>
+            <button
+              class="btn btn-outline-secondary btn-lg px-4 rounded-pill"
+              type="button"
+            >
+              <a href="/login" class="nav-link">Login Instead</a>
+            </button>
+          <% } %>
         </div>
       </div>
     </div>
