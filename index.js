@@ -31,10 +31,9 @@ app.set("views", path.resolve("views"));
 // Routes
 app.use("/", router);
 app.get("/", authenticate, async (req, res) => {
-  const user = await User.findOne({_id: req?.user?._id});
   const blogs = await Blog.find({ createdBy: req?.user?._id || null });
   console.log({blogs})
-  res.render("index", { user: user, blogs: blogs });
+  res.render("index", { user: req?.user, blogs: blogs });
 });
 app.use("/", blog);
 

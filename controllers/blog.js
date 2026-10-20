@@ -2,11 +2,12 @@ import { Blog } from "../models/blogSchema.js";
 
 // show create blog page.
 const newBlog = (req, res) => {
-  if (req.isAuthenticated()) {
+  if(req.user) {
     res.render("new", { user: req.user });
-  } else {
-    res.redirect("/login");
+    return;
   }
+  res.redirect("/login");
+  return;
 };
 
 const viewUpdatedBlog = async (req, res) => {
@@ -41,7 +42,7 @@ const updateBlog = async (req, res) => {
   const id = req.params.id;
   const existingBlog = await Blog.findById({ _id: id });
   try {
-    const newUpdatedBlog = await Blog.findByIdAndUpdate(
+    await Blog.findByIdAndUpdate(
       { _id: id },
       {
         title: req.body.title || existingBlog.title,
