@@ -29,10 +29,12 @@ app.set("views", path.resolve("views"));
 
 
 // Routes
+app.get("/api/healthz", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
 app.use("/", router);
 app.get("/", authenticate, async (req, res) => {
   const blogs = await Blog.find({ createdBy: req?.user?._id || null });
-  console.log({blogs})
   res.render("index", { user: req?.user, blogs: blogs });
 });
 app.use("/", blog);
