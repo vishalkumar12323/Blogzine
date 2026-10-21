@@ -29,7 +29,7 @@ app.set("views", path.resolve("views"));
 
 
 // Routes
-app.get("/api/healthz", (req, res) => {
+app.get("/api/healthz", (_req, res) => {
   res.status(200).json({ status: "ok" });
 });
 app.use("/", router);
@@ -40,7 +40,8 @@ app.get("/", authenticate, async (req, res) => {
 app.use("/", blog);
 
 // Connect to the database
-connectDB(process.env.MONGODB_URL).then(() =>
+const MONGODB_URL = `mongodb://${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DATABASE}`;
+connectDB(MONGODB_URL).then(() =>
   console.log("Connected to the database")
 );
 
