@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: blogzine-app-container
-        image: <Image>
+        image: vishaldoc502/blogzine:prod
         resources:
           requests:
             memory: "150Mi"
