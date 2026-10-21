@@ -6,11 +6,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: blogzine-app
+      app.kubernetes.io/name: blogzine-app
+      app.kubernetes.io/component: backend
+      app.kubernetes.io/instance: blogzine
   template:
     metadata:
       labels:
-        app: blogzine-app
+        app.kubernetes.io/name: blogzine-app
+        app.kubernetes.io/component: backend
+        app.kubernetes.io/instance: blogzine
     spec:
       containers:
       - name: blogzine-app-container
