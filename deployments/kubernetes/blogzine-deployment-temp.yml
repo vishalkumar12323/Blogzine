@@ -26,6 +26,8 @@ spec:
             value: "27017"
           - name: MONGODB_DATABASE
             value: Blogger
+          - name: JWT_SECRET
+            value: a9954edc4b465111fcd9e6a1337666e93a0ca9dbeadc2bd82db3195c8d6be04ba7b630f1bc3a292c9ea2968d52e349a12377
         resources:
           requests:
             memory: "150Mi"
