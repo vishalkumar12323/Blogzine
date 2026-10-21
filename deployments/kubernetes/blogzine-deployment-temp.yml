@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogzine-app
+  namespace: blogzine
+spec:
+  selector:
+    matchLabels:
+      app: blogzine-app
+  template:
+    metadata:
+      labels:
+        app: blogzine-app
+    spec:
+      containers:
+      - name: blogzine-app-container
+        image: <Image>
+        resources:
+          requests:
+            memory: "150Mi"
+            cpu: "200m"
+          limits:
+            memory: "200Mi"
+            cpu: "300m"
+        ports:
+        - containerPort: 8080
