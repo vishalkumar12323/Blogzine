@@ -24,6 +24,8 @@ spec:
             value: mongodb
           - name: MONGODB_PORT
             value: "27017"
+          - name: MONGODB_DATABASE
+            value: Blogger
         resources:
           requests:
             memory: "150Mi"
