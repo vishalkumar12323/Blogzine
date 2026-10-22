@@ -8,7 +8,6 @@ import { router } from "./routes/user.js";
 import { blog } from "./routes/blog.js";
 import { Blog } from "./models/blogSchema.js";
 import { authenticate } from "./middleware/auth.js";
-import { User } from "./models/userSchema.js";
 
 // Load environment variables
 config();
@@ -43,7 +42,9 @@ app.use("/", blog);
 const MONGODB_URL = `mongodb://${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DATABASE}`;
 connectDB(MONGODB_URL).then(() =>
   console.log("Connected to the database")
-);
+).catch((err) => {
+  console.log(`Error while connecting to DB: `, err);
+})
 
 // Start the server
 app.listen(port, () => console.log(`Server started on port: ${port}`));
