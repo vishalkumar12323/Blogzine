@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: blogzine-app
+  namespace: blogzine
 spec:
   type: NodePort
   selector:
