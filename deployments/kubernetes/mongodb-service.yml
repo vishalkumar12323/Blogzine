@@ -4,6 +4,7 @@ metadata:
   name: mongodb
   namespace: blogzine
 spec:
+  clusterIP: None
   selector:
     app.kubernetes.io/instance: mongodb
   ports:
