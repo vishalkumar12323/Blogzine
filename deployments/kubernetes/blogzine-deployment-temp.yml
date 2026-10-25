@@ -21,10 +21,9 @@ spec:
         image: vishaldoc502/blogzine:prod-v1
         envFrom:
           - configMapRef:
-              name: blogzine-app-config-map
+              name: blogzine-app-config
           - secretRef:
               name: blogzine-app-secrets
-
         resources:
           requests:
             memory: "150Mi"
