@@ -39,7 +39,7 @@ app.get("/", authenticate, async (req, res) => {
 app.use("/", blog);
 
 // Connect to the database
-const MONGODB_URL = `mongodb://${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DATABASE}`;
+const MONGODB_URL = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DATABASE}`;
 connectDB(MONGODB_URL).then(() =>
   console.log("Connected to the database")
 ).catch((err) => {
