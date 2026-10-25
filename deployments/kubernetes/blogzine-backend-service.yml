@@ -4,10 +4,9 @@ metadata:
   name: blogzine-app
   namespace: blogzine
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app.kubernetes.io/instance: blogzine
   ports:
   - port: 8080
     targetPort: 8080
-    nodePort: 31000
