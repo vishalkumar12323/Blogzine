@@ -23,7 +23,7 @@ spec:
         image: mongo:latest
         envFrom:
           - secretRef:
-            name: mongodb-secret
+              name: mongodb-secret
         ports:
         - containerPort: 27017
         volumeMounts:
