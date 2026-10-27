@@ -4,6 +4,6 @@ metadata:
   name: blogzine-app-config
   namespace: blogzine
 data:
-  MONGODB_HOST: mongodb
+  MONGODB_HOST: mongodb-service
   MONGODB_PORT: "27017"
   MONGODB_DATABASE: Blogger
