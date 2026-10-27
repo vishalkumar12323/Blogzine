@@ -12,6 +12,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: blogzine-app
+            name: blogzine-app-service
             port: 
               number: 8080

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: blogzine-app
+  name: blogzine-app-service
   namespace: blogzine
 spec:
   type: ClusterIP
