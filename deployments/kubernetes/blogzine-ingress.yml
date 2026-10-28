@@ -6,13 +6,14 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - hosts: blogzine.local
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: blogzine-backend-service
-            port:
-              number: 8080
+    - host: blogzine.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: blogzine-backend-service
+                port:
+                  number: 8080
+
